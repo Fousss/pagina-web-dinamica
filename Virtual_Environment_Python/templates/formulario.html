@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>Mi formulario</title>
+	</head>
+	<body>
+	Ingrese sus datos a continuacion
+	</body>
+	<form action="{{url_for('hello')}}" method="post">
+		<h3>Nombre Completo</h3>
+		<input type="text" name="name"  placeholder=""  >
+		<h3>Datos de Contacto</h3>
+		<input type="text" name="telf"  placeholder="telefono"  >
+		<input type="email" name="email"  placeholder="email"  >
+		<h3>Ocupacion</h3>
+		<input type="text" name="ocupacion"  placeholder=""  >
+		<h3>Fecha de Nacimiento</h3>
+		<input type="date" name="fecha" >
+		<h3>Nacionalidad</h3>
+		<select class="" name="nacionalidad">
+			<option value="Peru">Peru</option>
+			<option value="Ecuador">Ecuador</option>
+			<option value="Chile">Chile</option>
+			<option value="Argentina">Argentina</option>
+			<option value="Otros">Otros</option>
+		</select>
+		<h3>Conocimiento de Lenguajes de programacion </h3>	
+		
+		<select name="lenguajes" multiple>
+			<option value="c++">c++</option>
+			<option value="python">python</option>
+			<option value="c#">c#</option>
+			<option value="php">php</option>
+			<option value="java">java</option>
+			<option value="JavaScript">avaScript</option>
+		  </select>
+		<h3>Nivel De Ingles</h3>
+		<input type="radio" name="ingles" checked>basico
+		<input type="radio" name="ingles" checked>intermedio
+		<input type="radio" name="ingles" checked>avanzado
+		<input type="radio" name="ingles" checked>fluido
+
+		<h3>Aptitudes Varias</h3>	
+		<input type="datalist" name="aptitudes" list="aptitudes">
+		<datalist id="aptitudes">
+			<option value="Inteligencia Emocional"></option>
+			<option value="Pensamiento Critico"></option>
+			<option value="Capacidad de cooperacion en equipo"></option>
+			<option value="Capacidad analitica"></option>
+			<option value="Habilidades fisicas"></option>
+		
+		</datalist>
+		
+		<h3>Habilidades</h3>
+		
+			<input type="checkbox" name="a_fisico" value="acondicionamiento fisico">
+			<label for="a_fisico">acondicionamiento fisico</label>
+			
+			<input type="checkbox" name="c_v_d" value="creacion video deportivos" >
+			<label for="creacion video deportivos">creacion video deportivos</label>
+			
+			<input type="checkbox" name="p_ofice" value="pack office">
+			<label for="pack office">pack office</label>
+			
+			<input type="checkbox" name="tenis" value="tenis" >
+			<label for="tenis">Basquet</label>
+			 
+		<h3></h3>
+		
+	
+		<h3>Texto de Perfil</h3>
+		<textarea name="texto1" rows="4" cols="25"></textarea>
+		<br/>
+		<button>Finalizar</button>
+	
+	</form>
+
+	
+</html>
