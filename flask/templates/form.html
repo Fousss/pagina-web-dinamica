@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://raw.githubusercontent.com/t0m/select2-bootstrap-css/bootstrap3/select2-bootstrap.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"
+    />
+
+    {% assets "form-styles" %} <link rel=stylesheet type=text/css href="{{
+    ASSET_URL }}"> {% endassets %}
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <form id="data-form" class="form">
+          <div class="form-group">
+            <label>Nombre y Apellidos</label>
+            <input
+              type="text"
+              property="full_name"
+              field="input"
+              validate="isNotEmpty"
+              placeholder="Ingresa tu nombre completo"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Fecha de Nacimiento</label>
+            <input
+              type="text"
+              property="birthdate"
+              field="datepicker"
+              datepicker
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Ocupacion</label>
+            <input
+              type="text"
+              property="occupation"
+              field="input"
+              validate="isNotEmpty"
+              placeholder="Ingresa tu ocupacion"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Telefono</label>
+            <input
+              type="text"
+              property="phone"
+              field="input"
+              validate="isNotEmpty|isPhone"
+              placeholder="Ingresa tu telefono"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              property="email"
+              field="input"
+              validate="isNotEmpty|isEmail"
+              placeholder="Ingresa tu email"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Nacionalidad</label>
+            <select
+              property="nationality"
+              field="select2"
+              select2
+              class="form-control"
+            >
+              <option>Peru</option>
+              <option>Chile</option>
+              <option>Ruso</option>
+              <option>Japones</option>
+              <option>Coreano</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="form__label-button">
+              <label>Idiomas</label>
+              <button
+                type="button"
+                class="btn btn-sm btn-primary"
+                onclick="createItem(this, ['select2', 'select2'], 'except')"
+              >
+                +
+              </button>
+            </div>
+            <div
+              property="languages"
+              child="language,level"
+              multiple
+              class="form__input-group"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label>Lenguajes de Programacion</label>
+            <select
+              property="programming_languages"
+              field="select2-tags"
+              select2-tags
+              multiple="multiple"
+              class="form-control"
+            >
+              <option>C++</option>
+              <option>C#</option>
+              <option>Python</option>
+              <option>Java</option>
+              <option>Javascript</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Aptitudes</label>
+            <select
+              property="aptitudes"
+              field="select2-tags"
+              select2-tags
+              multiple="multiple"
+              class="form-control"
+            >
+              <option>flexibilidad</option>
+              <option>resiliencia</option>
+              <option>liderazgo</option>
+              <option>integridad</option>
+              <option>empatia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="form__label-button">
+              <label>Habilidades</label>
+              <button
+                type="button"
+                class="btn btn-sm btn-primary"
+                onclick="createItem(this, ['input'])"
+              >
+                +
+              </button>
+            </div>
+            <div
+              property="skills"
+              child
+              multiple
+              class="form__input-group"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <div class="form__label-button">
+              <label>Experiencia Laboral</label>
+              <button
+                type="button"
+                class="btn btn-sm btn-primary"
+                onclick="createItem(this, ['input', 'datepicker-multiple'])"
+              >
+                +
+              </button>
+            </div>
+            <div
+              property="work_experience"
+              child="name,dates"
+              multiple
+              class="form__input-group"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <div class="form__label-button">
+              <label>Formacion</label>
+              <button
+                type="button"
+                class="btn btn-sm btn-primary"
+                onclick="createItem(this, ['input', 'datepicker-multiple'])"
+              >
+                +
+              </button>
+            </div>
+            <div
+              property="training"
+              child="name,dates"
+              multiple
+              class="form__input-group"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label>Perfil</label>
+            <textarea
+              property="profile"
+              field="textarea"
+              validate="isNotEmpty"
+              rows="3"
+              class="form-control"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="error-content">
+            <p id="error-message"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <script id="datasource" type="application/json">
+    {{ context }}
+  </script>
+
+  <script src="	https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+
+  {% assets "form-scripts" %}
+  <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+
+  <script>
+    loadLibs();
+  </script>
+</html>

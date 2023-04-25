@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "input": {
+      "type": "text",
+      "tag": "input",
+      "value": ""
+    },
+    "datepicker-multiple": {
+      "type": "text",
+      "tag": "input",
+      "value": ""
+    },
+    "select2": {
+      "type": "",
+      "tag": "select",
+      "value": ""
+    }
+  },
+  "data": {
+    "languages": [
+      ["Ingles", "Ruso", "Japones", "Chino", "Coreano"],
+      ["Basico", "Intermedio", "Avanzado", "Fluido"]
+    ]
+  }
+}

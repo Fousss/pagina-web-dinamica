@@ -5,8 +5,14 @@ name = "pypi"
 
 [packages]
 flask = "*"
+waitress = "*"
+flask-sqlalchemy = "*"
+python-dotenv = "*"
+pyscss = "*"
+flask-assets = "*"
+jsmin = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
